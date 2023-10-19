@@ -5,5 +5,13 @@
     - junit5
     - mockito
     - maven-sure-fire plugin
+    - servlet-api
+    - servlet.jsp-api
+    - jstl api
+    - jstl implementation
+    - lombok
+  
+- 톰캣 10 서버 설정
+
 - 회원 가입 기능 설계(JoinService)
   - models/member/JoinService.java

@@ -15,6 +15,7 @@ public class JoinServiceTest {
 
     @BeforeEach
     void init() {
+        MemberDao.clearData();
         joinService = ServiceManager.getInstance().joinService();
     }
 
@@ -139,8 +140,10 @@ public class JoinServiceTest {
     void duplicateJoinCheck() {
         assertThrows(DuplicateMemberException.class, () -> {
            Member member = getMember();
+           String userPw = member.getUserPw();
            joinService.join(member);
 
+           member.setUserPw(userPw);
            joinService.join(member); // 동일한 정보를 통해 두번 가입
         });
     }

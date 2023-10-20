@@ -38,7 +38,7 @@ public class JoinValidator implements Validator<Member>, RequiredValidator, Leng
         //비밀번호, 비밀번호확인 일치 여부 s
 
         //중복 가입 여부 체크 s
-        requiredTrue(memberDao.exists(userId), new DuplicateMemberException());
+        requiredTrue(!memberDao.exists(userId), new DuplicateMemberException());
         //중복 가입 여부 체크 e
 
     }

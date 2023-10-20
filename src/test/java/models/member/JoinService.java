@@ -17,5 +17,6 @@ public class JoinService {
 
         validator.check(member);
 
+        memberDao.register(member);
     }
 }

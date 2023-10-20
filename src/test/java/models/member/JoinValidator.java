@@ -7,6 +7,12 @@ import commons.Validator;
 
 public class JoinValidator implements Validator<Member>, RequiredValidator, LengthValidator {
 
+    private MemberDao memberDao;
+
+    public void setMemberDao(MemberDao memberDao) {
+        this.memberDao = memberDao; // 생성자로 주입해도 상관 X 지금은 setter형태
+    }
+
     @Override
     public void check(Member member) {
         String userId = member.getUserId();
@@ -30,6 +36,10 @@ public class JoinValidator implements Validator<Member>, RequiredValidator, Leng
         //비밀번호, 비밀번호확인 일치 여부 s
         requiredTrue(userPw.equals(confirmUserPw), new BadRequestException("비밀번호가 일치하지 않습니다."));
         //비밀번호, 비밀번호확인 일치 여부 s
+
+        //중복 가입 여부 체크 s
+        requiredTrue(memberDao.exists(userId), new DuplicateMemberException());
+        //중복 가입 여부 체크 e
 
     }
 }

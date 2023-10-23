@@ -40,3 +40,14 @@
     - GET : 로그인 양식
     - POST : 로그인 처리
   - View : /WEB-INF/templates/member/login.jsp
+- 메인페이지
+  - 로그인한 경우
+    - 사용자명(아이디)님 로그인 메시지 출력
+    - 로그아웃(/member/logout), 마이페이지(/mypage) 링크
+  - 미로그인 상태
+    - 회원가입(/member/join), 로그인(/member/login) 링크
+- 로그아웃
+    - /member/logout
+    - Controller
+      - controllers/member/LogoutController.java
+    - GET, POST 메서드 상관 없이 기능 할 수 있도록 처리

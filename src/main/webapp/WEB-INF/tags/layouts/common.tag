@@ -3,16 +3,14 @@
 <%@ attribute name="title" %>
 <%@ attribute name="header" fragment="true" %>
 <%@ attribute name="footer" fragment="true" %>
-<c:url var="commonCss" value="/css/style.css" />
-<c:url var="commonJs" value="/js/common.js" />
-<c:url var="cssUrl" value="/css/" />
-<c:url var="jsUrl" value="/js/" />
+<c:url var="cssUrl" value="/static/css/" />
+<c:url var="jsUrl" value="/static/js/" />
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>${title}</title>
-        <link rel="stylesheet" type="text/css" href="${commonCss}">
+        <link rel="stylesheet" type="text/css" href="${cssUrl}style.css" />
         <c:if test="${addCss != null}">
             <c:forEach var="path" items="${addCss}">
             <link rel="stylesheet" type="text/css" href="${cssUrl}${path}.css">
@@ -27,15 +25,15 @@
         </c:if>
     </head>
     <body>
-        <header>
-            <jsp:invoke fragment="header" />
-        </header>
+
+        <jsp:invoke fragment="header" />
+
         <main>
             <jsp:doBody />
         </main>
-        <footer>
-            <jsp:invoke fragment="footer" />
-        </footer>
+
+        <jsp:invoke fragment="footer" />
+
         <iframe name="ifrmProcess" class="dn"></iframe>
     </body>
 </html>

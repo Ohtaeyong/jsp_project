@@ -1,0 +1,44 @@
+.container {
+	width: 385px;
+	line-height: 50px;
+	margin: 40px auto;
+}
+
+h5 {
+	text-align: center;
+}
+
+h5 span {
+	color: teal;
+}
+
+.login {
+	background-color: rgb(255, 80, 90);
+	color: white;
+	border-radius: 5px;
+	border: 0;
+	padding: 10px 172px;
+}
+
+.login1 {
+	background-color: rgb(255, 80, 90);
+	color: white;
+	border-radius: 5px;
+	border: 0;
+	padding: 10px 172px;
+}
+
+
+p {
+	text-align: center;
+}
+
+i {
+	color: lightgray;
+}
+
+
+input {
+	border: 1px solid lightgray;
+	border-radius: 3px;
+}

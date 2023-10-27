@@ -2,25 +2,24 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <c:url var="action" value="/member/login" />
-<layout:main title="로그인">
-    <h1>로그인</h1>
+<c:url var="mainUrl" value="/" />
+<c:url var="joinUrl" value="/member/join" />
+<layout:bodyOnly title="로그인">
+    <div class="container">
+            <h5><span>로그인</span> 페이지입니다.</h5>
+        <hr />
+
     <form method="post" action="${action}" target="ifrmProcess">
-        <dl>
-            <dt>아이디</dt>
-            <dd>
-                <input type="text" name="userId" value="${cookie.saveId.value}">
-            </dd>
-        </dl>
-        <dl>
-            <dt>비밀번호</dt>
-            <dd>
-                <input type="password" name="userPw">
-            </dd>
-        </dl>
+        <input type="text" placeholder="아이디" name="userId" value="${cookie.saveId.value}" required style="height:30px; width: 380px" /><br>
+        <input type="password" placeholder="비밀번호" name="userPw" required style="height:30px; width: 380px" /><br />
         <div>
             <input type="checkbox" name="saveId" value="true" id="saveId"${cookie.saveId == null ? '' : 'checked'}>
             <label for="saveId">아이디 저장</label>
         </div>
-        <button type="submit">로그인</button>
+        <button type="submit" class="login">로그인</button><%--버튼태그를 닫을것--%>
+        <a href="${mainUrl}"><input type="button" value="HOME" class="login1" /></a>
     </form>
-</layout:main>
+    <hr />
+        <p><a href="${joinUrl}"><input type="button" value="회원가입" id="signup" /></a></p>
+    </div>
+</layout:bodyOnly>

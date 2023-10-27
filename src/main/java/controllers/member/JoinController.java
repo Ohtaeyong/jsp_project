@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 public class JoinController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("addCss", new String[] { "join"} ); // jsp에서 css경로 설정하지않고 컨트롤러에서 직접
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/member/join.jsp");
         rd.forward(req, resp);
     }
